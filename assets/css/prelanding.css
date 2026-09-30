@@ -1,0 +1,38 @@
+/* Prelanding · junglalab.com (usa variables y componentes de styles.css) */
+.pre-hero { position: relative; overflow: hidden; text-align: center; margin-top: -73px; padding-top: 73px;
+  background: radial-gradient(ellipse 50% 90% at 50% 0%, rgba(45,59,255,.55) 0%, rgba(45,59,255,.12) 50%, rgba(6,8,25,0) 80%), radial-gradient(ellipse 30% 60% at 12% 100%, rgba(61,227,177,.14) 0%, rgba(61,227,177,0) 100%), var(--bg); }
+.pre-hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(184,191,230,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(184,191,230,.07) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: linear-gradient(#000 20%, transparent 95%); mask-image: linear-gradient(#000 20%, transparent 95%); }
+.pre-hero__in { position: relative; display: flex; flex-direction: column; align-items: center; gap: 24px; padding-block: clamp(40px, 6vw, 72px) clamp(36px, 5vw, 56px); }
+.pre-hero h1 { font-size: clamp(32px, 5vw, 72px); line-height: .96; font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -.03em; color: #fff; max-width: 1240px; }
+.pre-hero .badge { align-self: center; }
+.pre-hero .hero__sub { max-width: 620px; }
+
+.paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; padding-block: 8px clamp(40px, 5vw, 64px); position: relative; }
+.path { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 20px; padding: clamp(24px, 3.4vw, 48px); border: 1px solid var(--border); border-radius: 24px; min-width: 0;
+  background: radial-gradient(ellipse 80% 80% at 100% 0%, rgba(45,59,255,.35), rgba(45,59,255,0) 70%), var(--surface); transition: border-color .2s, transform .2s; }
+.path:hover { border-color: rgba(61,227,177,.5); transform: translateY(-2px); }
+.path--b2b { background: radial-gradient(ellipse 80% 80% at 0% 0%, rgba(61,227,177,.16), rgba(61,227,177,0) 70%), radial-gradient(ellipse 80% 80% at 100% 100%, rgba(45,59,255,.4), rgba(45,59,255,0) 70%), var(--surface); }
+.path__tag { align-self: flex-start; padding: 6px 12px; border: 1px solid rgba(61,227,177,.35); border-radius: 999px; font: 400 12px/1.2 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.path h2 { font-size: clamp(26px, 3vw, 40px); line-height: 1.08; font-weight: 700; letter-spacing: -.025em; color: #fff; }
+.path ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; color: var(--txt); font-size: clamp(15px, 1.3vw, 18px); }
+.path li { display: flex; gap: 12px; align-items: center; }
+.path li::before { content: ""; width: 18px; height: 18px; flex-shrink: 0; background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233de3b1' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12l5 5L20 6'/%3E%3C/svg%3E"); }
+.path .btn { align-self: flex-start; margin-top: 4px; }
+.path__note { font: 400 12px/1.4 var(--f-mono); letter-spacing: .06em; color: var(--txt-3); }
+.path__ghost { position: absolute; right: -8px; bottom: -28px; font-size: clamp(90px, 14vw, 200px); font-weight: 800; font-style: italic; letter-spacing: -.04em; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(61,227,177,.14); pointer-events: none; user-select: none; }
+
+.pre-tools { border-top: 1px solid var(--border); padding-block: 32px; text-align: center; }
+.pre-tools .tools { grid-template-columns: repeat(5, minmax(0, 1fr)); max-width: 900px; margin-inline: auto; }
+.pre-cta { border-top: 1px solid var(--border); background: linear-gradient(90deg, rgba(6,8,25,0), rgba(45,59,255,.22)); padding-block: clamp(36px, 5vw, 56px); }
+.pre-cta .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.pre-cta h2 { font-size: clamp(24px, 2.6vw, 34px); font-weight: 700; letter-spacing: -.02em; color: #fff; }
+.pre-cta p { color: var(--txt-2); margin-top: 6px; }
+
+@media (max-width: 860px) {
+  .pre-hero { margin-top: -65px; padding-top: 65px; }
+  .paths { grid-template-columns: 1fr; }
+  .pre-tools .tools { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pre-cta .wrap { flex-direction: column; align-items: flex-start; }
+  .pre-cta .btn { width: 100%; }
+}
+@media (max-width: 520px) { .path .btn { width: 100%; } .pre-tools .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

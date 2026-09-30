@@ -198,13 +198,22 @@
         setStatus('error', 'No pudimos enviar tu consulta. Revisa tu conexión e inténtalo de nuevo, o <a href="' + waHref + '" target="_blank" rel="noopener">escríbenos por WhatsApp</a>.');
         track('form_submit_error', { pagina: pageName });
       }
-      if (!CFG.formEndpoint) { done(); return; }
+      if (!CFG.formEndpoint && !CFG.supabaseUrl) { done(); return; }
+      var url = CFG.formEndpoint, headers = { 'Content-Type': 'application/json' }, body = payload;
+      if (CFG.supabaseUrl) {
+        url = CFG.supabaseUrl + '/rest/v1/' + (CFG.supabaseTable || 'leads_raw');
+        headers.apikey = CFG.supabaseKey;
+        headers.Authorization = 'Bearer ' + CFG.supabaseKey;
+        headers.Prefer = 'return=minimal';
+        body = { source: 'web_' + pageName, landing: pageName, name: payload.nombre, email: payload.email,
+                 phone: payload.celular || null, company: null, raw_payload: payload };
+      }
       var ctrl = 'AbortController' in window ? new AbortController() : null;
       var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 12000);
-      fetch(CFG.formEndpoint, {
+      fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        headers: headers,
+        body: JSON.stringify(body),
         signal: ctrl ? ctrl.signal : undefined
       }).then(function (r) { clearTimeout(timer); if (r.ok) done(); else fail(); })
         .catch(function () { clearTimeout(timer); fail(); });

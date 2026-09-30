@@ -8,6 +8,13 @@ window.JL_CONFIG = {
      página de gracias, pero no envía los datos a ningún lado. */
   formEndpoint: '',
 
+  /* Supabase (proyecto jungla-lab-crm): los formularios insertan en public.leads_raw.
+     La key publishable es pública por diseño; la tabla solo permite INSERT anónimo (RLS).
+     Si supabaseUrl está lleno, tiene prioridad sobre formEndpoint. */
+  supabaseUrl: 'https://srhwdushsgfxlgatgikw.supabase.co',
+  supabaseKey: 'sb_publishable_arXxbcVZnAHqvIbeQ6ylgQ_sj_8Pm-a',
+  supabaseTable: 'leads_raw',
+
   /* Número de WhatsApp con código de país, solo dígitos (Perú = 51). */
   whatsappNumber: '51XXXXXXXXX',
   whatsappText: 'Hola Jungla Lab, quiero conversar sobre cómo hacer crecer mi negocio.',
