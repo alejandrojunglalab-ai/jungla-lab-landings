@@ -1,0 +1,24 @@
+/* Piezas compartidas para las landings (botones, cookies, WhatsApp flotante) */
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 22px; border-radius: 999px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; transition: transform .15s ease, filter .15s ease, background .15s; white-space: nowrap; }
+.btn:hover { color: var(--accent-ink); filter: brightness(1.08); transform: translateY(-1px); }
+.btn--ghost { background: rgba(255,255,255,.04); color: var(--txt); border-color: var(--border-2); }
+.btn--ghost:hover { color: var(--txt); background: rgba(255,255,255,.08); }
+.btn--sm { height: 40px; padding: 0 18px; font-size: 14px; }
+.btn--lg { height: 56px; padding: 0 28px; font-size: 16px; }
+.btn--wa { background: var(--wa); border-color: var(--wa); color: var(--wa-ink); }
+.btn--wa:hover { color: var(--wa-ink); }
+.spinner { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(6,8,25,.3); border-top-color: var(--accent-ink); animation: spin .8s linear infinite; }
+.wa-float:hover { color: var(--wa-ink); transform: translateY(-2px); }
+.wa-float svg { width: 22px; height: 22px; }
+.wa-float.is-hidden { opacity: 0; pointer-events: none; transform: translateY(10px); }
+.cookie h2 { font-size: 16px; font-weight: 700; }
+.cookie p { font-size: 13px; line-height: 1.5; color: var(--txt-2); }
+.cookie__prefs { display: flex; flex-direction: column; gap: 8px; }
+.cookie__opt { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px; }
+.cookie__opt small { display: block; color: var(--txt-3); font-size: 12px; }
+.cookie__opt input { width: 18px; height: 18px; accent-color: var(--accent); flex-shrink: 0; }
+.cookie__actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.cookie__actions .btn{flex:1 1 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
