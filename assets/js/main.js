@@ -205,7 +205,7 @@
         headers.apikey = CFG.supabaseKey;
         headers.Authorization = 'Bearer ' + CFG.supabaseKey;
         headers.Prefer = 'return=minimal';
-        body = { source: 'web_' + pageName, landing: pageName, name: payload.nombre, email: payload.email,
+        body = { source: 'web_' + pageName, landing: /^b2[bc]$/.test(pageName) ? pageName.toUpperCase() : null, name: payload.nombre, email: payload.email,
                  phone: payload.celular || null, company: null, raw_payload: payload };
       }
       var ctrl = 'AbortController' in window ? new AbortController() : null;

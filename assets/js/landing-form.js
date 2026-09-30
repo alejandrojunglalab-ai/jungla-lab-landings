@@ -36,7 +36,7 @@
     if (form.elements.sitio_web && form.elements.sitio_web.value) return;
     var at = store('jl_attribution_v1') || { values: {} };
     var payload = {
-      source: 'web_' + page, landing: page,
+      source: 'web_' + page, landing: page.toUpperCase(), /* la tabla solo acepta 'B2B' o 'B2C' */
       name: v('nombre'), email: v('email').toLowerCase(), phone: phone(v('celular')), company: v('empresa') || null,
       raw_payload: {
         servicio: v('servicio'), consentimiento: true,
