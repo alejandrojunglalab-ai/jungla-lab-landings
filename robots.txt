@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /gracias
-
-Sitemap: https://junglalab.com/sitemap.xml
+Disallow: /
